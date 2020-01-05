@@ -1,0 +1,85 @@
+<!-- <p>
+  list-user works!
+</p> -->
+
+<!-- <mat-toolbar color="primary">
+    <mat-toolbar-row>
+       <span><img src="./assets/devglan.png"></span>
+      <span class="example-fill-remaining-space"></span>
+      <span class="example-spacer"></span>
+  
+      <button mat-button>About</button>
+      <button mat-button>Contact</button>
+    </mat-toolbar-row>
+  </mat-toolbar> -->
+  <!-- <div class="login-page" [@routerTransition]> -->
+      <!-- <div [@routerTransition]> -->
+
+          <app-header></app-header>
+          <app-sidebar (collapsedEvent)="receiveCollapsed($event)"></app-sidebar>
+          <section class="main-container" [ngClass]="{collapsed: collapedSideBar}">
+              <mat-card id='user'>
+
+                  <mat-card-content class="user_container">
+                      <mat-table id="user_table" #table [dataSource]="dataSource" class="isMobile" matSort
+                        [(matSortActive)]="sortColumn" matSortDirection="asc">
+          
+                          <ng-container matColumnDef="id">
+                            <mat-header-cell *matHeaderCellDef> User Id </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+                          </ng-container>
+                      
+                          <ng-container matColumnDef="username">
+                            <mat-header-cell *matHeaderCellDef> UserName</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
+                          </ng-container>
+                      
+                          <ng-container matColumnDef="salary">
+                            <mat-header-cell *matHeaderCellDef> Salary </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.salary}} </mat-cell>
+                          </ng-container>
+                      
+                          <ng-container matColumnDef="age">
+                            <mat-header-cell *matHeaderCellDef> age </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.age}} </mat-cell>
+                          </ng-container>
+                      
+                          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                        </mat-table>
+                        <mat-paginator id="user_pagination" [pageSize]="pageSize" [showFirstLastButtons]='true' [hidePageSize]="true">
+                          </mat-paginator>
+                    </mat-card-content>
+                </mat-card>
+          </section>
+      
+        <!-- </div> -->
+  <!-- <div class="example-container mat-elevation-z8">
+
+    <mat-table #table [dataSource]="dataSource">
+  
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> User Id </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="username">
+        <mat-header-cell *matHeaderCellDef> UserName</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="salary">
+        <mat-header-cell *matHeaderCellDef> Salary </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.salary}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="age">
+        <mat-header-cell *matHeaderCellDef> age </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.age}} </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+  <tr-pagination [name]="'userList'" *ngIf="true" [paginationObj]="sortSearchPaginationObj?.paginationObj" [name]="'userList'" (paginationCommand)="paginate($event)"></tr-pagination>   -->

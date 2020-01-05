@@ -1,0 +1,57 @@
+<div class="login-page" [@routerTransition]>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <img class="user-avatar" src="assets/images/logo.png" width="150px" />
+             <!-- <h1>SB Admin BS4 Angular7</h1>
+                    <form [formGroup]="registrationAddForm" class="login-form">
+                 <div class="form-content">
+                    <div class="form-group">
+                        <input type="text" class="form-control input-underline input-lg" id="" placeholder="{{ 'Full Name' | translate }}">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control input-underline input-lg" id="" placeholder="{{ 'Email' | translate }}">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="{{ 'Password' | translate }}">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="{{ 'Repeat Password' | translate }}">
+                    </div>
+                </div> -->
+                <form [formGroup]="registrationAddForm" class="login-form">
+                <div class="form-content">
+                    <div class="form-group">
+                        <input type="text" formControlName="username" class="form-control input-underline input-lg" id="username" placeholder="{{ 'UserName' | translate }}">
+
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control" formControlName="password" class="form-control input-underline input-lg" id="password"
+                            placeholder="{{ 'Password' | translate }}">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" formControlName="age" class="form-control input-underline input-lg" id="age" placeholder="{{ 'Age' | translate }}">
+
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName="salary" class="form-control input-underline input-lg" id="salary"
+                            placeholder="{{ 'Salary' | translate }}">
+                    </div>
+
+                </div> 
+                <!-- <a class="btn rounded-btn" (click)="submit()" [disabled]="!userForm.valid">{{ 'Register' | translate }}</a>&nbsp;
+                <a class="btn rounded-btn" [routerLink]="['/login']">{{ 'Log in' | translate }}</a> -->
+
+                <button type="button" class="btn rounded-btn" (click)="onSubmit()" [disabled]="!registrationAddForm.valid">{{ 'Register' | translate }}</button>
+                &nbsp;
+                <button type="button" class="btn rounded-btn" [routerLink]="['/login']">{{ 'Log in' | translate }}</button>
+            </form>
+     </div>
+    </div>
+</div> 
+
+
