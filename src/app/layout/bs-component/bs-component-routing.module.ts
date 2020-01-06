@@ -5,8 +5,20 @@ import { BsComponentComponent } from './bs-component.component';
 const routes: Routes = [
     {
         path: '',
-        component: BsComponentComponent
-    }
+        component: BsComponentComponent,
+    
+
+        // children : [
+        //     {
+        //       path: 'user-management', loadChildren: () => import('../../features/user-management/user-management.module').then(m => m.UserManagementModule),
+        //     //   data: { title: 'UserManagement, Timetables & Roles', breadcrumb: '', preload: false}
+        //     }
+        //   ]
+     },
+     {
+        path: 'user-management', loadChildren: () => import('../../features/user-management/user-management.module').then(m => m.UserManagementModule),
+      //   data: { title: 'UserManagement, Timetables & Roles', breadcrumb: '', preload: false}
+      }
 ];
 
 @NgModule({
