@@ -53,8 +53,8 @@ export class LoginComponent implements OnInit {
            this.authService.attemptAuth(this.loginForm.value).subscribe(
             data => {
               this.token.saveToken(data.token);
-              this.router.navigate(['list-user']);
-            //   this.router.navigate(['/dashboard']);
+            //   this.router.navigate(['list-user']);
+              this.router.navigate(['/dashboard']);
             //    this.router.navigate(['main/first']);
               // this.router.navigate(['first']);
             }
