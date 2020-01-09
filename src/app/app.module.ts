@@ -55,7 +55,7 @@ export const createTranslateLoader = (http: HttpClient) => {
                 deps: [HttpClient]
             }
         }),
-        UserManagementModule,
+        // UserManagementModule,
         // portal_routing,
         AppRoutingModule
     ],

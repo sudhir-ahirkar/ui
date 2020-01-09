@@ -16,7 +16,7 @@ type NewType = MatPaginator;
   styleUrls: ['./list-user.component.scss']
 })
 export class ListUserComponent implements OnInit,  AfterViewInit {
-  displayedColumns = ['id', 'username', 'salary', 'age'];
+  displayedColumns = ['username', 'salary', 'age'];
   dataSource = new MatTableDataSource<User>();
   sortColumn = 'age';
   sortDirection = 'desc';

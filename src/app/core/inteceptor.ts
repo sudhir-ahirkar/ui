@@ -4,13 +4,8 @@ import {HttpInterceptor, HttpRequest, HttpHandler, HttpSentEvent, HttpHeaderResp
 import { Router } from '@angular/router';
 import {TokenStorage} from './token.storage';
 import { Observable } from 'rxjs';
-// import { filter } from 'rxjs/operators';
 const TOKEN_HEADER_KEY = 'Authorization';
-// import 'rxjs/add/operator/do';
-// import 'rxjs/add/operator/do';
-// import 'rxjs/add/operator/catch';
-// import 'rxjs/Observable';
-// import 'rxjs/add/observable/throw';
+
 import { map, filter, tap } from 'rxjs/operators';
 @Injectable()
 export class Interceptor implements HttpInterceptor {
