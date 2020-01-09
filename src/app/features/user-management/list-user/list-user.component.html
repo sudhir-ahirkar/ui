@@ -43,6 +43,31 @@
                             <mat-header-cell *matHeaderCellDef> age </mat-header-cell>
                             <mat-cell *matCellDef="let element"> {{element.age}} </mat-cell>
                           </ng-container>
+                          <ng-container matColumnDef="action">
+                
+                            <mat-header-cell class="actions-column" *matHeaderCellDef>Action</mat-header-cell>
+                            <mat-cell class="actions-column" *matCellDef="let element"> <span class="mobile-label"></span>
+                    
+                               <button  id="view_user_button_{{element.id}}" mat-icon-button color="primary" [routerLink]="['./view']"
+                               
+                              [queryParams]="{ id : element.id}" queryParamsHandling="merge" title="View"
+                              
+                              matTooltip="View" [matTooltipShowDelay]="800">
+                                <mat-icon>visibility</mat-icon>
+                              </button>
+                    
+                              <button  id="edit_user_button_{{element.id}}" mat-icon-button  matTooltip="Edit"
+                                [matTooltipShowDelay]="800" [routerLink]="['./profile']"
+                                [queryParams]="{ id : element.id}" queryParamsHandling="merge">
+                                <mat-icon color="primary">create</mat-icon>
+                              </button>
+                    
+                              <button id="delete_user_button_{{element.id}}" mat-icon-button title="Delete"
+                                attr.aria-label="Delete {{element.id}}">
+                                <mat-icon color="accent">delete</mat-icon>
+                              </button> 
+                             </mat-cell>
+                    </ng-container>
                       
                           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                           <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
