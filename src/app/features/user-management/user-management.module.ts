@@ -9,7 +9,6 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { ListUserComponent } from './list-user/list-user.component';
 import { DetailUserComponent } from './detail-user/detail-user.component';
 import { UserManagementRoutingModule } from './user-management.routes';
-import { HttpClientModule } from '@angular/common/http';
 import { CustomMaterialModule } from '../../core/material.module';
 import { LayoutModule } from '../../layout/layout.module';
 
@@ -20,7 +19,7 @@ import { LayoutModule } from '../../layout/layout.module';
     TranslateModule,
     UserManagementRoutingModule,
     CustomMaterialModule,
-    LayoutModule
+    LayoutModule,
   ],
   // exports: [SampleComponent],
   schemas: [

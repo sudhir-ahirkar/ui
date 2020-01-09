@@ -15,10 +15,17 @@
   <!-- <div class="login-page" [@routerTransition]> -->
       <!-- <div [@routerTransition]> -->
 
-          <app-header></app-header>
+          <!-- <app-header></app-header>
           <app-sidebar (collapsedEvent)="receiveCollapsed($event)"></app-sidebar>
-          <section class="main-container" [ngClass]="{collapsed: collapedSideBar}">
+          <section class="main-container" [ngClass]="{collapsed: collapedSideBar}"> -->
               <mat-card id='user'>
+                <mat-card-header>
+                    <span>
+                    <button id="create_content_button" mat-stroked-button class="right" color="primary"
+                      [routerLink]="['/components/user-management/new']">Create New
+                    </button>
+                  </span>
+                </mat-card-header>
 
                   <mat-card-content class="user_container">
                       <mat-table id="user_table" #table [dataSource]="dataSource" class="isMobile" matSort
@@ -48,7 +55,7 @@
                             <mat-header-cell class="actions-column" *matHeaderCellDef>Action</mat-header-cell>
                             <mat-cell class="actions-column" *matCellDef="let element"> <span class="mobile-label"></span>
                     
-                               <button  id="view_user_button_{{element.id}}" mat-icon-button color="primary" [routerLink]="['./view']"
+                               <button  id="view_user_button_{{element.id}}" mat-icon-button color="primary" [routerLink]="['/components/user-management/view']"
                                
                               [queryParams]="{ id : element.id}" queryParamsHandling="merge" title="View"
                               
@@ -57,7 +64,7 @@
                               </button>
                     
                               <button  id="edit_user_button_{{element.id}}" mat-icon-button  matTooltip="Edit"
-                                [matTooltipShowDelay]="800" [routerLink]="['./profile']"
+                                [matTooltipShowDelay]="800" [routerLink]="['/components/user-management/new']"
                                 [queryParams]="{ id : element.id}" queryParamsHandling="merge">
                                 <mat-icon color="primary">create</mat-icon>
                               </button>
@@ -76,7 +83,7 @@
                           </mat-paginator>
                     </mat-card-content>
                 </mat-card>
-          </section>
+          <!-- </section> -->
       
         <!-- </div> -->
   <!-- <div class="example-container mat-elevation-z8">

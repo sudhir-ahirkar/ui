@@ -11,7 +11,7 @@ import { UserService } from './user.service';
 export const User_Management_ROUTES: Routes = [
    { path: "list-user", component: ListUserComponent, pathMatch: 'full', data:{action:'Read'}},
    { path: "new", component: AddUserComponent, data:{action:'Create'}},
-   { path: ":userId" , component: DetailUserComponent, data:{action:'Read'}},
+   { path: "view" , component: DetailUserComponent, data:{action:'Read'}},
    { path: "edit/:userId", component: EditUserComponent, pathMatch: 'full', data:{action:'Update'}},
 ];
 
