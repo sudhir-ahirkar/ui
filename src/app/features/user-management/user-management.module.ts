@@ -19,17 +19,15 @@ import { LayoutModule } from '../../layout/layout.module';
     CommonModule,
     TranslateModule,
     UserManagementRoutingModule,
-    HttpClientModule,
     CustomMaterialModule,
     LayoutModule
-    
-    ],
-    // exports: [SampleComponent],
-    schemas: [
-        CUSTOM_ELEMENTS_SCHEMA,
-        NO_ERRORS_SCHEMA
-      ],
-declarations: [AddUserComponent,EditUserComponent,ListUserComponent,DetailUserComponent],
-providers: [AuthService,UserService]
+  ],
+  // exports: [SampleComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ],
+  declarations: [AddUserComponent, EditUserComponent, ListUserComponent, DetailUserComponent],
+  providers: [AuthService, UserService]
 })
 export class UserManagementModule { }
