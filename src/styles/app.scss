@@ -5,9 +5,9 @@
 @import "rtl";
 @import "responsive";
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
-@import '@angular/material/prebuilt-themes/indigo-pink.css';
-@import '@angular/material/prebuilt-themes/pink-bluegrey.css';
-@import '@angular/material/prebuilt-themes/purple-green.css';
+// @import '@angular/material/prebuilt-themes/indigo-pink.css';
+// @import '@angular/material/prebuilt-themes/pink-bluegrey.css';
+// @import '@angular/material/prebuilt-themes/purple-green.css';
 
 
 @media print {
@@ -15,3 +15,46 @@
         display: none !important;
     }
 }
+
+.card-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .card-column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: calc(50% - 12px);
+
+    .mat-form-field {
+      width: 100%;
+    }
+  }
+
+  .group-title {
+    color: #2b769b;
+    margin-bottom: 12px;
+  }
+
+  .group-title.group-subtitle {
+    color: #2b769b;
+    margin-bottom: 24px;
+  }
+
+  .group-subtitle {
+    color: rgba(0, 0, 0, 0.87);
+    margin-bottom: 24px;
+  }
+
+  .mobile-label {
+    display: none;
+  }
+
+  .mat-row {
+    min-height: 56px;
+  }
+
+
