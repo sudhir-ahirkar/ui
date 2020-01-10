@@ -5,15 +5,19 @@ import {
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-  imports: [CommonModule,
+  imports: [
+    CommonModule,
     MatButtonModule,
-    MatToolbarModule,
+    MatToolbarModule, 
     MatNativeDateModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatTableModule, MatListModule,
-    MatCardModule,MatDialogModule,
-    MatInputModule,MatSelectModule, 
+    MatIconModule, 
+    MatSidenavModule, 
+    MatListModule,
+    MatTableModule,
+    MatCardModule,
+    MatDialogModule, 
+    MatInputModule,
+    MatSelectModule,
     MatSortModule,
     MatTableModule,
     MatTooltipModule,
