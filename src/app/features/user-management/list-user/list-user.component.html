@@ -21,8 +21,8 @@
               <mat-card id='user'>
                 <mat-card-header>
                     <span>
-                    <button id="create_content_button" mat-stroked-button class="right" color="primary"
-                      [routerLink]="['/components/user-management/new']">Create New
+                    <button id="create_content_button" mat-stroked-button class="right" 
+                      [routerLink]="['../new']">Create New
                     </button>
                   </span>
                 </mat-card-header>
@@ -47,7 +47,7 @@
                           </ng-container>
                       
                           <ng-container matColumnDef="age">
-                            <mat-header-cell *matHeaderCellDef> age </mat-header-cell>
+                            <mat-header-cell *matHeaderCellDef> Age </mat-header-cell>
                             <mat-cell *matCellDef="let element"> {{element.age}} </mat-cell>
                           </ng-container>
                           <ng-container matColumnDef="action">
@@ -55,7 +55,7 @@
                             <mat-header-cell class="actions-column" *matHeaderCellDef>Action</mat-header-cell>
                             <mat-cell class="actions-column" *matCellDef="let element"> <span class="mobile-label"></span>
                     
-                               <button  id="view_user_button_{{element.id}}" mat-icon-button color="primary" [routerLink]="['/components/user-management/view']"
+                               <button  id="view_user_button_{{element.id}}" mat-icon-button  [routerLink]="['../view']"
                                
                               [queryParams]="{ id : element.id}" queryParamsHandling="merge" title="View"
                               
@@ -64,9 +64,9 @@
                               </button>
                     
                               <button  id="edit_user_button_{{element.id}}" mat-icon-button  matTooltip="Edit"
-                                [matTooltipShowDelay]="800" [routerLink]="['/components/user-management/new']"
+                                [matTooltipShowDelay]="800" [routerLink]="['../new']"
                                 [queryParams]="{ id : element.id}" queryParamsHandling="merge">
-                                <mat-icon color="primary">create</mat-icon>
+                                <mat-icon>create</mat-icon>
                               </button>
                     
                               <button id="delete_user_button_{{element.id}}" mat-icon-button title="Delete"
