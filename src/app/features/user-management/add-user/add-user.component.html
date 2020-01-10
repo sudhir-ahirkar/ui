@@ -1,20 +1,42 @@
 <mat-card-content>
-  <div class="card-row"> 
+  <form [formGroup]="manageUserForm" (ngSubmit)="onSubmit()"
+  autocomplete="off">
+  <div class="card-row">
     <div class="card-column">
-      <mat-form-field>
+      <mat-form-field  appearance="outline">
         <mat-label>
           User Name
         </mat-label>
-        <input matInput type="text"/>
+        <input matInput type="text"  formControlName="username">
+        <mat-hint>
+          Maximum 100 alphanumeric and ! , . - / are allowed
+        </mat-hint>
       </mat-form-field>
     </div>
     <div class="card-column">
-      <mat-form-field>
+      <mat-form-field  appearance="outline">
+        <mat-label>
+          Password
+        </mat-label>
+        <input matInput type="password"  formControlName="password">
+      </mat-form-field>
+    </div>
+    <div class="card-column">
+      <mat-form-field  appearance="outline">
         <mat-label>
           Age
         </mat-label>
-        <input matInput type="text"/>
+        <input matInput type="text"  formControlName="salary" />
       </mat-form-field>
     </div>
-  </div> 
+    <div class="card-column">
+      <mat-form-field  appearance="outline">
+        <mat-label>
+          Salary
+        </mat-label>
+        <input matInput type="text"  formControlName="age" />
+      </mat-form-field>
+    </div>
+  </div>
+  </form>
 </mat-card-content>

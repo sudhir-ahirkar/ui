@@ -60,13 +60,13 @@
                               [queryParams]="{ id : element.id}" queryParamsHandling="merge" title="View"
                               
                               matTooltip="View" [matTooltipShowDelay]="800">
-                                <mat-icon>visibility</mat-icon>
+                                <mat-icon>alarm</mat-icon>
                               </button>
                     
                               <button  id="edit_user_button_{{element.id}}" mat-icon-button  matTooltip="Edit"
                                 [matTooltipShowDelay]="800" [routerLink]="['../new']"
                                 [queryParams]="{ id : element.id}" queryParamsHandling="merge">
-                                <mat-icon>create</mat-icon>
+                                <mat-icon>get_app</mat-icon>
                               </button>
                     
                               <button id="delete_user_button_{{element.id}}" mat-icon-button title="Delete"
