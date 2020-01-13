@@ -69,7 +69,7 @@
                                 <mat-icon>get_app</mat-icon>
                               </button>
                     
-                              <button id="delete_user_button_{{element.id}}" mat-icon-button title="Delete"
+                              <button id="delete_user_button_{{element.id}}" mat-icon-button title="Delete" (click)="removeUser(element.id)"
                                 attr.aria-label="Delete {{element.id}}">
                                 <mat-icon color="accent">delete</mat-icon>
                               </button> 
