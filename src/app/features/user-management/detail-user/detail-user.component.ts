@@ -3,7 +3,8 @@ import { FormBuilder } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../core/services/auth.service';
 import { TokenStorage } from '../../../core/token.storage';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-detail-user',
@@ -11,15 +12,32 @@ import { Router } from '@angular/router';
   styleUrls: ['./detail-user.component.scss']
 })
 export class DetailUserComponent implements OnInit {
-
+  users: any = {};
+  userId: any;
   constructor(
     private formBuilder: FormBuilder,
     private translate: TranslateService,
     private authService: AuthService,
     private token: TokenStorage,
-    public router: Router) { }
+    public userService: UserService,
+    public router: Router,
+    private readonly route: ActivatedRoute, ) {
+
+    this.route.queryParams.subscribe((params: any) => {
+      if (params.id) {
+        this.userId = +params.id;
+      }
+    });
+  }
 
   ngOnInit() {
+    this.getUserById(this.userId);
+  }
+
+  getUserById(id: number) {
+    this.userService.view(id).subscribe(data => {
+      this.users = data;
+    })
   }
 
 }
