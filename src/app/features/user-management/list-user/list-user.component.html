@@ -1,117 +1,70 @@
-<!-- <p>
-  list-user works!
-</p> -->
+<mat-card id='user'>
+  <mat-card-header>
+    <span>
+      <mat-form-field id="search_user_form" class="search_by">
+        <input id="search_user_input" (keydown.enter)="onFilter(search_user_input.value)" matInput
+          placeholder="Search by user Name" #search_user_input>
+        <button id="do_search_button" mat-button matSuffix mat-icon-button aria-label="Clear"
+          (click)="onFilter(search_user_input.value)">
+          <mat-icon>search</mat-icon>
+        </button>
+        <button id="clear_search_button" *ngIf="search_user_input.value !==''" mat-button matSuffix mat-icon-button
+          aria-label="Clear" (click)="onFilter(''); search_user_input.value=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </span>
+    <span class="spacer"></span>
+    <span>
+      <button id="create_content_button" mat-stroked-button class="right" [routerLink]="['../new']">Create New
+      </button>
+    </span>
+  </mat-card-header>
 
-<!-- <mat-toolbar color="primary">
-    <mat-toolbar-row>
-       <span><img src="./assets/devglan.png"></span>
-      <span class="example-fill-remaining-space"></span>
-      <span class="example-spacer"></span>
-  
-      <button mat-button>About</button>
-      <button mat-button>Contact</button>
-    </mat-toolbar-row>
-  </mat-toolbar> -->
-  <!-- <div class="login-page" [@routerTransition]> -->
-      <!-- <div [@routerTransition]> -->
-
-          <!-- <app-header></app-header>
-          <app-sidebar (collapsedEvent)="receiveCollapsed($event)"></app-sidebar>
-          <section class="main-container" [ngClass]="{collapsed: collapedSideBar}"> -->
-              <mat-card id='user'>
-                <mat-card-header>
-                    <span>
-                    <button id="create_content_button" mat-stroked-button class="right" 
-                      [routerLink]="['../new']">Create New
-                    </button>
-                  </span>
-                </mat-card-header>
-
-                  <mat-card-content class="user_container">
-                      <mat-table id="user_table" #table [dataSource]="dataSource" class="isMobile" matSort
-                        [(matSortActive)]="sortColumn" matSortDirection="asc">
-          
-                          <!-- <ng-container matColumnDef="id">
-                            <mat-header-cell *matHeaderCellDef> User Id </mat-header-cell>
-                            <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
-                          </ng-container> -->
-                      
-                          <ng-container matColumnDef="username">
-                            <mat-header-cell *matHeaderCellDef> UserName</mat-header-cell>
-                            <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
-                          </ng-container>
-                      
-                          <ng-container matColumnDef="salary">
-                            <mat-header-cell *matHeaderCellDef> Salary </mat-header-cell>
-                            <mat-cell *matCellDef="let element"> {{element.salary}} </mat-cell>
-                          </ng-container>
-                      
-                          <ng-container matColumnDef="age">
-                            <mat-header-cell *matHeaderCellDef> Age </mat-header-cell>
-                            <mat-cell *matCellDef="let element"> {{element.age}} </mat-cell>
-                          </ng-container>
-                          <ng-container matColumnDef="action">
-                
-                            <mat-header-cell class="actions-column" *matHeaderCellDef>Action</mat-header-cell>
-                            <mat-cell class="actions-column" *matCellDef="let element"> <span class="mobile-label"></span>
-                    
-                               <button  id="view_user_button_{{element.id}}" mat-icon-button  [routerLink]="['../view']"
-                               
-                              [queryParams]="{ id : element.id}" queryParamsHandling="merge" title="View"
-                              
-                              matTooltip="View" [matTooltipShowDelay]="800">
-                                <mat-icon>visibility</mat-icon>
-                              </button>
-                    
-                              <button  id="edit_user_button_{{element.id}}" mat-icon-button  matTooltip="Edit"
-                                [matTooltipShowDelay]="800" [routerLink]="['../new']"
-                                [queryParams]="{ id : element.id}" queryParamsHandling="merge">
-                                <mat-icon>create</mat-icon>
-                              </button>
-                    
-                              <button id="delete_user_button_{{element.id}}" mat-icon-button title="Delete" (click)="removeUser(element.id)"
-                                attr.aria-label="Delete {{element.id}}">
-                                <mat-icon >delete</mat-icon>
-                              </button> 
-                             </mat-cell>
-                    </ng-container>
-                      
-                          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-                        </mat-table>
-                        <mat-paginator id="user_pagination" [pageSize]="pageSize" [showFirstLastButtons]='true' [hidePageSize]="true">
-                          </mat-paginator>
-                    </mat-card-content>
-                </mat-card>
-          <!-- </section> -->
-      
-        <!-- </div> -->
-  <!-- <div class="example-container mat-elevation-z8">
-
-    <mat-table #table [dataSource]="dataSource">
-  
-      <ng-container matColumnDef="id">
-        <mat-header-cell *matHeaderCellDef> User Id </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
-      </ng-container>
-  
+  <mat-card-content class="user_container">
+    <mat-table id="user_table" #table [dataSource]="dataSource" class="isMobile" matSort [(matSortActive)]="sortColumn"
+      matSortDirection="asc">
       <ng-container matColumnDef="username">
-        <mat-header-cell *matHeaderCellDef> UserName</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> UserName</mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
       </ng-container>
-  
+
       <ng-container matColumnDef="salary">
-        <mat-header-cell *matHeaderCellDef> Salary </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Salary </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.salary}} </mat-cell>
       </ng-container>
-  
+
       <ng-container matColumnDef="age">
-        <mat-header-cell *matHeaderCellDef> age </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Age </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.age}} </mat-cell>
       </ng-container>
-  
+      <ng-container matColumnDef="action">
+
+        <mat-header-cell class="actions-column" *matHeaderCellDef>Action</mat-header-cell>
+        <mat-cell class="actions-column" *matCellDef="let element"> <span class="mobile-label"></span>
+
+          <button id="view_user_button_{{element.id}}" mat-icon-button [routerLink]="['../view']"
+            [queryParams]="{ id : element.id}" queryParamsHandling="merge" title="View" matTooltip="View"
+            [matTooltipShowDelay]="800">
+            <mat-icon>visibility</mat-icon>
+          </button>
+
+          <button id="edit_user_button_{{element.id}}" mat-icon-button matTooltip="Edit" [matTooltipShowDelay]="800"
+            [routerLink]="['../new']" [queryParams]="{ id : element.id}" queryParamsHandling="merge">
+            <mat-icon>create</mat-icon>
+          </button>
+
+          <button id="delete_user_button_{{element.id}}" mat-icon-button title="Delete" (click)="removeUser(element.id)"
+            attr.aria-label="Delete {{element.id}}">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
-  </div>
-  <tr-pagination [name]="'userList'" *ngIf="true" [paginationObj]="sortSearchPaginationObj?.paginationObj" [name]="'userList'" (paginationCommand)="paginate($event)"></tr-pagination>   -->
+    <mat-paginator id="user_pagination" [pageSize]="pageSize" [showFirstLastButtons]='true' [hidePageSize]="true">
+    </mat-paginator>
+  </mat-card-content>
+</mat-card>

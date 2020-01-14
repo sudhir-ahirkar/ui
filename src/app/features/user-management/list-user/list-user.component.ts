@@ -15,17 +15,18 @@ type NewType = MatPaginator;
   templateUrl: './list-user.component.html',
   styleUrls: ['./list-user.component.scss']
 })
-export class ListUserComponent implements OnInit,  AfterViewInit {
-  displayedColumns = ['username', 'salary', 'age','action'];
+export class ListUserComponent implements OnInit, AfterViewInit {
+  displayedColumns = ['username', 'salary', 'age', 'action'];
   dataSource = new MatTableDataSource<User>();
   sortColumn = 'age';
   sortDirection = 'desc';
-  pageSize = 10;
+  pageSize = 2;
+  // filterBy = { keyword: 'user3' };
   filterBy = { keyword: null };
 
 
   @ViewChild(MatPaginator, { static: true }) paginator: NewType;
-  @ViewChild(MatSort, { static: true } ) sort: MatSort;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,7 +34,7 @@ export class ListUserComponent implements OnInit,  AfterViewInit {
     private authService: AuthService,
     private token: TokenStorage,
     public router: Router,
-    public userService:UserService,
+    public userService: UserService,
   ) { }
 
   ngOnInit(): void {
@@ -69,31 +70,26 @@ export class ListUserComponent implements OnInit,  AfterViewInit {
 
   resolveContents(filterBy) {
     this.userService
-    // .getUsers(`${this.sortColumn},${this.sortDirection}`, this.pageSize, this.paginator.pageIndex, filterBy)
-     .getUsers(`${this.sortColumn},${this.sortDirection}`, this.pageSize, 0, filterBy)
+      // .getUsers(`${this.sortColumn},${this.sortDirection}`, this.pageSize, this.paginator.pageIndex, filterBy)
+      .getUsers(`${this.sortColumn},${this.sortDirection}`, this.pageSize,  this.paginator.pageIndex, filterBy)
       .subscribe(data => {
         this.dataSource.data = data.content;
         this.paginator.length = data.totalElements;
       });
-      // , error => this.snackBarService.error(error.error.errorMessage));
+    // , error => this.snackBarService.error(error.error.errorMessage));
 
 
   }
 
-  removeUser(id:number) {
-
-  this.userService.remove(id).subscribe(
-      // data => {
-      //   this.dataSource.data = data;
-      //   this.userList=data;
-      // }
-    );
-      // , error => this.snackBarService.error(error.error.errorMessage));
-
-
+  removeUser(id: number) {
+    this.userService.remove(id).subscribe(
+      response => {
+        this.router.navigate(['/components/user-management/list-user']);
+      }
+    )
   }
 
- 
+
   onFilter(filterValue: string) {
     this.filterBy.keyword = filterValue;
     this.paginator.pageIndex = 0;
