@@ -80,6 +80,19 @@ export class ListUserComponent implements OnInit,  AfterViewInit {
 
   }
 
+  removeUser(id:number) {
+
+  this.userService.remove(id).subscribe(
+      // data => {
+      //   this.dataSource.data = data;
+      //   this.userList=data;
+      // }
+    );
+      // , error => this.snackBarService.error(error.error.errorMessage));
+
+
+  }
+
  
   onFilter(filterValue: string) {
     this.filterBy.keyword = filterValue;
