@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../../core/services/auth.service';
 import { TokenStorage } from '../../../core/token.storage';
 import { UserService } from '../user.service';
+import { AppConfirmService } from '../../../../app/shared/app-confirm/app-confirm.service';
 
 @Component({
   selector: 'app-add-user',
@@ -20,7 +21,8 @@ export class AddUserComponent implements OnInit {
   private token: TokenStorage,
   public router: Router,
   public route:ActivatedRoute,
-  public userService: UserService
+  public userService: UserService,
+  private readonly appConfirmService: AppConfirmService,
   ) {
     this.route.queryParams.subscribe((params: any) => {
       if (params.id) {
@@ -36,7 +38,7 @@ export class AddUserComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required],
       salary: ['', [Validators.required]],
-      age: ['']
+      age: ['',Validators.required]
     });
 
 
@@ -72,5 +74,12 @@ export class AddUserComponent implements OnInit {
       response => {
         this.router.navigate(['/components/user-management/list-user']);
       });
+  }
+
+  canDeactivate() {
+    if (this.manageUserForm.dirty) {
+      return this.appConfirmService.confirm({ title: `Add/Edit User`, message: 'Any unsaved changes will be lost. Continue?' });
+    }
+    return true;
   }
 }
