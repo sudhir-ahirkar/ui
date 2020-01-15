@@ -90,3 +90,55 @@
       margin-left: 0.25em;
     }
   }
+
+
+  .search_by {
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    // padding: 3px 0 3px 12px;
+    padding: 0.25em 0.75em;
+    margin: 0 12px 0 0;
+    border-radius: 4px;
+    font-size: 0.95em;
+
+    .mat-form-field-infix {
+      width: 300px;
+      border-top: 0;
+    }
+
+    .mat-form-field-appearance-legacy .mat-form-field-wrapper,
+    .mat-form-field-wrapper {
+      padding: 0;
+    }
+
+    .mat-form-field-underline {
+      display: none;
+      height: 0;
+      background-color: transparent !important;
+    }
+
+    .mat-form-field-suffix .mat-icon-button {
+      width: 24px;
+      height: 24px;
+
+      &:hover {
+        background: transparent;
+      }
+
+      .mat-icon {
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.64);
+      }
+    }
+  }
+
+  .search_by.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
+  .search_by .mat-input-element::placeholder {
+    display: none;
+    opacity: 0;
+  }
+
+  .search_by .mat-input-element::placeholder,
+  .search_by .mat-input-element::-webkit-input-placeholder,
+  .search_by .mat-input-element::-moz-placeholder {
+    opacity: 0;
+  }
