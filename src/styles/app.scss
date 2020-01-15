@@ -60,3 +60,33 @@
   }
 
 
+  .label-hr {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    margin: 16px 0;
+    color: #149fd8;
+
+    span {
+      font-size: 1.3em;
+      font-weight: 100;
+      padding-right: 8px;
+      // color: mat-color($seq-primary);
+      color: blue;
+    }
+
+    &:after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+    }
+    &:before {
+      content: "";
+      width: 0px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+    }
+
+    &:after {
+      margin-left: 0.25em;
+    }
+  }
