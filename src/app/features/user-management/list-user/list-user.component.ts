@@ -20,7 +20,7 @@ export class ListUserComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource<User>();
   sortColumn = 'age';
   sortDirection = 'desc';
-  pageSize = 2;
+  pageSize = 5;
   // filterBy = { keyword: 'user3' };
   filterBy = { keyword: null };
 

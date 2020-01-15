@@ -19,8 +19,6 @@ import { TokenStorage } from './core/token.storage';
 import { UserManagementModule } from './features/user-management/user-management.module';
 import { CustomMaterialModule } from './core/material.module';
 import { Interceptor } from './core/inteceptor';
-import { portal_routing } from './routes/tr.routes';
-import { UserService } from './features/user-management/user.service';
 // import { portal_routing } from 'src/app/routes/tr.routes';
 
 
@@ -62,7 +60,7 @@ export const createTranslateLoader = (http: HttpClient) => {
     declarations: [AppComponent],
     // exports:[PaginationComponent],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-    providers: [AuthGuard,TokenStorage,UserService,
+    providers: [AuthGuard,TokenStorage,
         {provide: HTTP_INTERCEPTORS,
         useClass: Interceptor,
         multi : true}],
