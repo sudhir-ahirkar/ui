@@ -1,4 +1,8 @@
+<div>User Account Add/Edit</div>
+<mat-card id='edit_user'>
 <mat-card-header>
+  <span>User Account Details</span>
+  <span class="spacer"> </span>
   <span>
       <button id="exit_user_button" mat-stroked-button color="primary"
           [routerLink]="['../user-management/list-user']">Exit</button>
@@ -35,7 +39,7 @@
         <mat-label>
           Age
         </mat-label>
-        <input matInput type="text"  formControlName="salary" />
+        <input matInput type="text"  formControlName="age" />
       </mat-form-field>
     </div>
     <div class="card-column">
@@ -43,11 +47,24 @@
         <mat-label>
           Salary
         </mat-label>
-        <input matInput type="text"  formControlName="age" />
+        <input matInput type="text"  formControlName="salary" />
       </mat-form-field>
     </div>
   </div>
-  <mat-card-footer>
+  <div class="card-row">
+    <div class="card-column">
+      <mat-form-field appearance="outline">
+        <mat-label>Roles</mat-label>
+        <mat-select placeholder="Select Ethnicity" formControlName="roles">
+          <mat-option>-- Select --</mat-option>
+          <!-- <mat-option *ngFor=" let option of roles" [value]="option.id">
+            {{option.value}}
+          </mat-option> -->
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <mat-card-footer class="footer">
     <span class="spacer"></span>
     <span>
       <button type="submit" id="save_user_button" mat-flat-button color="primary"
@@ -56,3 +73,4 @@
   </mat-card-footer>
 </form>
 </mat-card-content>
+</mat-card>

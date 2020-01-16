@@ -21,7 +21,6 @@ import { LayoutModule } from '../../layout/layout.module';
     CustomMaterialModule,
     LayoutModule,
   ],
-  // exports: [SampleComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA

@@ -38,16 +38,12 @@ getUsers(sort: string, size: number, page: number, body: any): Observable<any> {
 
   remove(id:number): Observable<any> {
     const href = `${this.userUrl}/users/${id}`;
-    return this.http.delete<any>(href, {
-     
-    });
+    return this.http.delete<any>(href);
   }
 
   view(id:number): Observable<any> {
     const href = `${this.userUrl}/users/${id}`;
-    return this.http.get<any>(href, {
-     
-    });
+    return this.http.get<any>(href);
   }
 
 }

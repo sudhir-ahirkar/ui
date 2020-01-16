@@ -8,10 +8,10 @@ import { CanDeactivateGuard } from 'src/app/shared/guard/can-deactivate/can-deac
 
 
 export const User_Management_ROUTES: Routes = [
-   { path: "list-user", component: ListUserComponent, pathMatch: 'full', data:{action:'Read'}},
+   { path: "list-user", component: ListUserComponent, pathMatch: 'full', data:{title: 'User Account List'}},
    { path: "new", component: AddUserComponent, data:{action:'Create'}, canDeactivate: [CanDeactivateGuard]},
    { path: "view" , component: DetailUserComponent, data:{action:'Read'}},
-   { path: "edit/:userId", component: EditUserComponent, pathMatch: 'full', data:{action:'Update'}, canDeactivate: [CanDeactivateGuard]},
+   { path: "edit/:userId", component: EditUserComponent, pathMatch: 'full', data:{action:'Update'}},
 ];
 
 
