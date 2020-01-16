@@ -22,7 +22,7 @@ export class AddUserComponent implements OnInit {
   public router: Router,
   public route:ActivatedRoute,
   public userService: UserService,
-  private readonly appConfirmService: AppConfirmService,
+  private appConfirmService: AppConfirmService,
   ) {
     this.route.queryParams.subscribe((params: any) => {
       if (params.id) {
@@ -34,11 +34,11 @@ export class AddUserComponent implements OnInit {
 
   ngOnInit() {
     this.manageUserForm = this.formBuilder.group({
-      id: [],
       username: ['', Validators.required],
       password: ['', Validators.required],
       salary: ['', [Validators.required]],
       age: ['',Validators.required]
+      // roles:[]
     });
 
 
@@ -63,6 +63,7 @@ export class AddUserComponent implements OnInit {
     let data = this.manageUserForm.getRawValue();
     this.userService.create(data).subscribe(
       response => {
+        this.manageUserForm.markAsPristine();
         this.router.navigate(['/components/user-management/list-user']);
       });
   }
@@ -72,6 +73,7 @@ export class AddUserComponent implements OnInit {
     let data = this.manageUserForm.getRawValue();
     this.userService.update(this.userId,data).subscribe(
       response => {
+        this.manageUserForm.markAsPristine();
         this.router.navigate(['/components/user-management/list-user']);
       });
   }
