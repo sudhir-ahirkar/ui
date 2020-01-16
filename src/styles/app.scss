@@ -147,3 +147,28 @@
   .spacer {
     flex: 1 1 auto;
   }
+
+  // .filter_by {
+  //   max-width: 300px;
+  //   font-size: 16px;
+  //   padding: 0.35em 0.75em;
+  //   border: 1px solid rgba(0, 0, 0, 0.24);
+  //   border-radius: 4px;
+  //   color: rgba(0, 0, 0, 0.87);
+  //   font-weight: 500;
+
+  //   .mat-select-placeholder {
+  //     color: rgba(0, 0, 0, 0.6);
+  //   }
+  // }
+  .heading{
+    font-size: 23px;
+    margin-bottom: 20px;
+  }
+.footer{
+  padding: 15px;
+  text-align: right;
+}
+#user .mat-card-header-text{
+  display: none;
+}
