@@ -84,7 +84,8 @@ export class ListUserComponent implements OnInit, AfterViewInit {
   removeUser(id: number) {
     this.userService.remove(id).subscribe(
       response => {
-        this.router.navigate(['/components/user-management/list-user']);
+        this.resolveContents(this.filterBy);
+        // this.router.navigate(['/components/user-management/list-user']);
       }
     )
   }
