@@ -14,6 +14,7 @@ import { UserService } from '../user.service';
 export class DetailUserComponent implements OnInit {
   users: any = {};
   userId: any;
+  refData: any;
   constructor(
     private formBuilder: FormBuilder,
     private translate: TranslateService,
@@ -31,6 +32,7 @@ export class DetailUserComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getCountryRefData();
     this.getUserById(this.userId);
   }
 
@@ -38,6 +40,12 @@ export class DetailUserComponent implements OnInit {
     this.userService.view(id).subscribe(data => {
       this.users = data;
     })
+  }
+
+  getCountryRefData(){
+    this.userService.getCountryRef().subscribe(data=>{
+       this.refData=data;
+    });
   }
 
 }
