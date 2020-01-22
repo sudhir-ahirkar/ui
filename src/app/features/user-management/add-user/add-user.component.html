@@ -1,4 +1,4 @@
-<div>User Account Add/Edit</div>
+<div class="heading">User Account Add/Edit</div>
 <mat-card id='edit_user'>
 <mat-card-header>
   <span>User Account Details</span>
@@ -51,24 +51,35 @@
       </mat-form-field>
     </div>
   </div>
-  <div class="card-row">
+   <div class="card-row">
+    <div class="card-column">
+      <mat-form-field appearance="outline">
+        <mat-label>Country</mat-label>
+        <mat-select placeholder="Select Ethnicity" formControlName="country">
+          <mat-option>-- Select --</mat-option>
+           <mat-option *ngFor=" let option of refData.countries" [value]="option.id">
+            {{option.value}}
+          </mat-option> 
+        </mat-select>
+      </mat-form-field>
+    </div>
     <div class="card-column">
       <mat-form-field appearance="outline">
         <mat-label>Roles</mat-label>
         <mat-select placeholder="Select Ethnicity" formControlName="roles">
           <mat-option>-- Select --</mat-option>
-          <!-- <mat-option *ngFor=" let option of roles" [value]="option.id">
+           <mat-option *ngFor=" let option of roles" [value]="option.id">
             {{option.value}}
-          </mat-option> -->
+          </mat-option> 
         </mat-select>
       </mat-form-field>
     </div>
-  </div>
+  </div> 
   <mat-card-footer class="footer">
     <span class="spacer"></span>
     <span>
       <button type="submit" id="save_user_button" mat-flat-button color="primary"
-        [disabled]="!manageUserForm.valid" appValidateForm [form]="manageUserForm">Save</button>
+        [disabled]="!manageUserForm.valid">Save</button>
     </span>
   </mat-card-footer>
 </form>

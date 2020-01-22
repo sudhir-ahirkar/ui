@@ -46,4 +46,10 @@ getUsers(sort: string, size: number, page: number, body: any): Observable<any> {
     return this.http.get<any>(href);
   }
 
+  getCountryRef(): Observable<any> {
+    const href = `${this.userUrl}/ref-data/user`;
+    return this.http.get<any>(href);
+  }
+  
+
 }

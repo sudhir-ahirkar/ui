@@ -16,6 +16,7 @@ export class AddUserComponent implements OnInit {
   manageUserForm: FormGroup;
   isNew :any= true;
   userId:any;
+  refData: any;
   constructor(
   private formBuilder: FormBuilder,
   private token: TokenStorage,
@@ -33,12 +34,14 @@ export class AddUserComponent implements OnInit {
    }
 
   ngOnInit() {
+   this.getCountryRefData();
     this.manageUserForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
       salary: ['', [Validators.required]],
-      age: ['',Validators.required]
-      // roles:[]
+      age: ['',Validators.required],
+      country: ['',Validators.required],
+      roles:[]
     });
 
 
@@ -83,5 +86,11 @@ export class AddUserComponent implements OnInit {
       return this.appConfirmService.confirm({ title: `Add/Edit User`, message: 'Any unsaved changes will be lost. Continue?' });
     }
     return true;
+  }
+
+  getCountryRefData(){
+    this.userService.getCountryRef().subscribe(data=>{
+       this.refData=data;
+    });
   }
 }
