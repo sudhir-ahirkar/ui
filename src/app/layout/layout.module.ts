@@ -17,7 +17,6 @@ import { GridModule } from './grid/grid.module';
 import { BlankPageModule } from './blank-page/blank-page.module';
 import { SearchComponent } from '../generic-component/search/search.component';
 import { PaginationComponent } from '../generic-component/pagination-component/pagination.component';
-import { UserManagementModule } from '../features/user-management/user-management.module';
 
 @NgModule({
     imports: [
@@ -32,7 +31,6 @@ import { UserManagementModule } from '../features/user-management/user-managemen
         BlankPageModule,
         TranslateModule,
         NgbDropdownModule,
-        // UserManagementModule
        
     ],
     declarations: [LayoutComponent, SidebarComponent, HeaderComponent,PaginationComponent,SearchComponent],

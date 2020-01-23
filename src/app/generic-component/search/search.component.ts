@@ -1,6 +1,7 @@
+import { ValidatorService } from './../../shared/components/form-control-messages/validator.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgForm, FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { ValidationService } from '../../core/services/validation.service';
+// import { ValidationService } from '../../core/services/validation.service';
 @Component({
   selector: 'tr-search',
   templateUrl: './search.component.html'
@@ -45,15 +46,15 @@ export class SearchComponent implements OnInit {
 
           if(element.type=="time"){
             if(element.mandatory){
-              formObj[element.field] = ['', Validators.compose([ValidationService.timeValidator, Validators.required])];
+              formObj[element.field] = ['', Validators.compose([ValidatorService.timeValidator, Validators.required])];
             }else{
-              formObj[element.field] = ['', Validators.compose([ValidationService.timeValidator])];
+              formObj[element.field] = ['', Validators.compose([ValidatorService.timeValidator])];
             }
           }else if(element.type=="date"){
             if(element.mandatory){
-              formObj[element.field] = ['', Validators.compose([ValidationService.dateValidator, Validators.required])];
+              formObj[element.field] = ['', Validators.compose([ValidatorService.dateValidator, Validators.required])];
             }else{
-              formObj[element.field] = ['', Validators.compose([ValidationService.dateValidator])];
+              formObj[element.field] = ['', Validators.compose([ValidatorService.dateValidator])];
             }
           }else {
             if(element.mandatory){

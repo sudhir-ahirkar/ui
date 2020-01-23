@@ -1,3 +1,4 @@
+import { ListLabelComponent } from './../../shared/components/list-label/list-label.component';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -25,7 +26,7 @@ import { LayoutModule } from '../../layout/layout.module';
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA
   ],
-  declarations: [AddUserComponent, EditUserComponent, ListUserComponent, DetailUserComponent],
+  declarations: [AddUserComponent, EditUserComponent, ListUserComponent, DetailUserComponent,ListLabelComponent],
   providers: [AuthService, UserService]
 })
 export class UserManagementModule { }

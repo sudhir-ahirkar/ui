@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { routerTransition } from '../router.animations';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ValidationService } from '../core/services/validation.service';
 import { AuthService } from '../core/services/auth.service';
 import { TokenStorage } from '../core/token.storage';
+import { ValidatorService } from '../shared/components/form-control-messages/validator.service';
 
 
 @Component({
@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
         this.loginForm = this.formBuilder.group({
             // email: ['', [Validators.required, ValidationService.emailValidator]],
             username: ['', [Validators.required,]],
-            // password: ['', [Validators.required, ValidationService.passwordValidator]]
+            // password: ['', [Validators.required, ValidatorService.passwordValidator]]
             password: ['', [Validators.required]]
 
         });

@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
@@ -16,13 +15,10 @@ import { ServerErrorModule } from './server-error/server-error.module';
 import { AccessDeniedModule } from './access-denied/access-denied.module';
 import { NotFoundModule } from './not-found/not-found.module';
 import { TokenStorage } from './core/token.storage';
-import { UserManagementModule } from './features/user-management/user-management.module';
 import { CustomMaterialModule } from './core/material.module';
 import { Interceptor } from './core/inteceptor';
-import { AppConfirmService } from './shared/app-confirm/app-confirm.service';
 import { CanDeactivateGuard } from './shared/guard/can-deactivate/can-deactivate.guard';
 import { AppConfirmModule } from './shared/app-confirm/app-confirm.module';
-// import { portal_routing } from 'src/app/routes/tr.routes';
 
 
 // AoT requires an exported function for factories

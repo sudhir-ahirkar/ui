@@ -5,6 +5,7 @@ import { AuthService } from '../../../core/services/auth.service';
 import { TokenStorage } from '../../../core/token.storage';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../user.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-detail-user',
@@ -24,28 +25,56 @@ export class DetailUserComponent implements OnInit {
     public router: Router,
     private readonly route: ActivatedRoute, ) {
 
-    this.route.queryParams.subscribe((params: any) => {
-      if (params.id) {
-        this.userId = +params.id;
-      }
-    });
+    // this.route.queryParams.subscribe((params: any) => {
+    //   if (params.id) {
+    //     this.userId = +params.id;
+    //     forkJoin([
+    //       this.userService.view(+params.id),
+    //       this.userService.getCountryRef()
+    //     ]).subscribe(data => {
+    //       this.users = data[0];
+    //       this.refData = data[1];
+         
+    //     });
+    //   }
+    // });
   }
 
   ngOnInit() {
-    this.getCountryRefData();
-    this.getUserById(this.userId);
+    // this.getCountryRefData();
+    // this.getUserById(this.userId);
+    this. resolveUseDetails();
+
+
   }
 
-  getUserById(id: number) {
-    this.userService.view(id).subscribe(data => {
-      this.users = data;
-    })
-  }
-
-  getCountryRefData(){
-    this.userService.getCountryRef().subscribe(data=>{
-       this.refData=data;
+  resolveUseDetails(){
+    this.route.queryParams.subscribe((params: any) => {
+      if (params.id) {
+        this.userId = +params.id;
+        forkJoin([
+          this.userService.view(+params.id),
+          this.userService.getCountryRef()
+        ]).subscribe(data => {
+          this.users = data[0];
+          this.refData = data[1];
+         
+        });
+      }
     });
   }
+  
+
+  // getUserById(id: number) {
+  //   this.userService.view(id).subscribe(data => {
+  //     this.users = data;
+  //   })
+  // }
+
+  // getCountryRefData(){
+  //   this.userService.getCountryRef().subscribe(data=>{
+  //      this.refData=data;
+  //   });
+  // }
 
 }
