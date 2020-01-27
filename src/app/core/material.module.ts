@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {
-  MatButtonModule,MatToolbarModule, MatNativeDateModule, MatIconModule, MatSidenavModule,MatTableModule, MatListModule, MatCardModule,MatDialogModule, MatInputModule,MatSelectModule, MatSortModule, MatTooltipModule, MatPaginatorModule, MatSnackBar, MatSnackBarModule
+  MatButtonModule,MatToolbarModule, MatNativeDateModule, MatIconModule, MatSidenavModule,MatTableModule, MatListModule, MatCardModule,MatDialogModule, MatInputModule,MatSelectModule, MatSortModule, MatTooltipModule, MatPaginatorModule, MatSnackBarModule
 } from '@angular/material';
 import { CommonModule } from '@angular/common';
 
@@ -19,7 +19,6 @@ import { CommonModule } from '@angular/common';
     MatInputModule,
     MatSelectModule, 
     MatSortModule,
-    MatTableModule,
     MatTooltipModule,
     MatPaginatorModule,
     MatSnackBarModule],
@@ -37,9 +36,9 @@ import { CommonModule } from '@angular/common';
     MatInputModule,
     MatSelectModule,
     MatSortModule,
-    MatTableModule,
     MatTooltipModule,
     MatPaginatorModule,
-    MatSnackBarModule],
+    MatSnackBarModule,
+     ],
 })
 export class CustomMaterialModule { }
