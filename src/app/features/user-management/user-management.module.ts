@@ -1,4 +1,5 @@
-import { ListLabelComponent } from './../../shared/components/list-label/list-label.component';
+import { CustomMaterialModule } from './../../core/material.module';
+import { SharedModule } from './../../shared/shared.module';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -10,7 +11,6 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { ListUserComponent } from './list-user/list-user.component';
 import { DetailUserComponent } from './detail-user/detail-user.component';
 import { UserManagementRoutingModule } from './user-management.routes';
-import { CustomMaterialModule } from '../../core/material.module';
 import { LayoutModule } from '../../layout/layout.module';
 
 @NgModule({
@@ -19,14 +19,15 @@ import { LayoutModule } from '../../layout/layout.module';
     CommonModule,
     TranslateModule,
     UserManagementRoutingModule,
-    CustomMaterialModule,
+    // CustomMaterialModule,
+    SharedModule,
     LayoutModule,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA
   ],
-  declarations: [AddUserComponent, EditUserComponent, ListUserComponent, DetailUserComponent,ListLabelComponent],
-  providers: [AuthService, UserService]
+  declarations: [AddUserComponent, EditUserComponent, ListUserComponent, DetailUserComponent],
+  providers: [UserService]
 })
 export class UserManagementModule { }
