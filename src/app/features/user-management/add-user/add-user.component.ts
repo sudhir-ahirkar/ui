@@ -1,3 +1,4 @@
+import { SnackBarService } from './../../../core/services/snack-bar.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -24,6 +25,7 @@ export class AddUserComponent implements OnInit {
   public route:ActivatedRoute,
   public userService: UserService,
   private appConfirmService: AppConfirmService,
+  private snackBarService:SnackBarService,
   ) {
     this.route.queryParams.subscribe((params: any) => {
       if (params.id) {
@@ -67,6 +69,7 @@ export class AddUserComponent implements OnInit {
     this.userService.create(data).subscribe(
       response => {
         this.manageUserForm.markAsPristine();
+        this.snackBarService.success('User information has been saved successfully');
         this.router.navigate(['/components/user-management/list-user']);
       });
   }

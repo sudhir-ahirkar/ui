@@ -19,6 +19,7 @@ import { CustomMaterialModule } from './core/material.module';
 import { Interceptor } from './core/inteceptor';
 import { CanDeactivateGuard } from './shared/guard/can-deactivate/can-deactivate.guard';
 import { AppConfirmModule } from './shared/app-confirm/app-confirm.module';
+import { SnackBarService } from './core/services/snack-bar.service';
 
 
 // AoT requires an exported function for factories
@@ -60,7 +61,7 @@ export const createTranslateLoader = (http: HttpClient) => {
     declarations: [AppComponent],
     // exports:[PaginationComponent],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-    providers: [AuthGuard,CanDeactivateGuard,TokenStorage,
+    providers: [SnackBarService,AuthGuard,CanDeactivateGuard,TokenStorage,
         {provide: HTTP_INTERCEPTORS,
         useClass: Interceptor,
         multi : true}],
