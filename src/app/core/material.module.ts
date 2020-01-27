@@ -22,9 +22,7 @@ import { CommonModule } from '@angular/common';
     MatTableModule,
     MatTooltipModule,
     MatPaginatorModule,
-    MatSnackBarModule]
-
-  ,
+    MatSnackBarModule],
   exports: [
     CommonModule,
     MatButtonModule,
@@ -42,6 +40,6 @@ import { CommonModule } from '@angular/common';
     MatTableModule,
     MatTooltipModule,
     MatPaginatorModule,
-  MatSnackBarModule],
+    MatSnackBarModule],
 })
 export class CustomMaterialModule { }
