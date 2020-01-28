@@ -21,9 +21,12 @@
           User Name
         </mat-label>
         <input matInput type="text"  formControlName="username">
-        <mat-hint>
+        <mat-error>
+          <app-control-messages [control]="manageUserForm.get('username')"></app-control-messages>
+        </mat-error>
+        <!-- <mat-hint>
           Maximum 100 alphanumeric and ! , . - / are allowed
-        </mat-hint>
+        </mat-hint> -->
       </mat-form-field>
     </div>
     <div class="card-column">
@@ -79,7 +82,7 @@
     <span class="spacer"></span>
     <span>
       <button type="submit" id="save_user_button" mat-flat-button color="primary"
-        [disabled]="!manageUserForm.valid">Save</button>
+        [disabled]="!manageUserForm.valid" appValidateForm [form]="manageUserForm">Save</button>
     </span>
   </mat-card-footer>
 </form>

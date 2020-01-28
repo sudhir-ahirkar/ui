@@ -1,3 +1,4 @@
+import { ValidatorService } from './shared/components/form-control-messages/validator.service';
 import { SharedModule } from './shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -64,7 +65,8 @@ export const createTranslateLoader = (http: HttpClient) => {
     providers: [AuthGuard,TokenStorage,
         {provide: HTTP_INTERCEPTORS,
         useClass: Interceptor,
-        multi : true}],
+        multi : true},
+    ValidatorService],
        
     bootstrap: [AppComponent]
 })

@@ -1,3 +1,4 @@
+import { ValidatorService } from './components/form-control-messages/validator.service';
 import { AuthService } from './../core/services/auth.service';
 import { CanDeactivateGuard } from './guard/can-deactivate/can-deactivate.guard';
 import { SnackBarService } from './../core/services/snack-bar.service';
@@ -10,8 +11,8 @@ import { FormControlMessagesModule } from './components/form-control-messages/fo
 @NgModule({
 declarations:[ListLabelComponent],
 imports:[CustomMaterialModule,AppConfirmModule,FormControlMessagesModule],
-exports:[ListLabelComponent,CustomMaterialModule],
-providers:[SnackBarService,CanDeactivateGuard,AuthService]
+exports:[ListLabelComponent,CustomMaterialModule,FormControlMessagesModule],
+providers:[SnackBarService,CanDeactivateGuard, AuthService]
 })
 
 export class SharedModule{
